@@ -26,6 +26,11 @@ def create_app() -> Flask:
     return app
 
 
+@app.route("/api/v1/ping", methods=["GET", "POST"])
+def ping():
+    return jsonify({"status": "ok"})
+
+
 @app.route("/api/v1/towers", methods=["POST"])
 def towers():
     if "image" not in request.files:
